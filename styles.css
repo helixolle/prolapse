@@ -1,0 +1,98 @@
+.bg {
+      }
+  
+  .bg:after {
+    animation: grain 8s steps(10) infinite;
+    background-image: url(http://assets.iceable.com/img/noise-transparent.png);
+    content: "";
+    height: 300%;
+    left: -50%;
+    opacity: 1;
+    position: fixed;
+    top: -110%;
+    width: 300%;
+  }
+  
+  @keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+  }
+
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1); 
+    filter: grayscale(100%); 
+  }
+
+  html, body {
+    height: 100%;
+  }
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 150%;
+    line-height: 1.4;
+  }
+  body {
+    margin: 0;
+  }
+  
+  .viewport-header {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  main {
+    background: rgba(black, 0.66);
+    color: white;
+    position: relative;
+    padding: 1rem;
+    p {
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+  }
+
+  header {
+      padding: 0px;
+      position: sticky;
+      top: 0px;
+      left: 0px;
+
+      z-index: 1000;
+  }
+
+  header.fixed-header {
+      box-shadow: 20px 4px 10px rgba(39, 59, 69, 0.2);
+  }
+
+  header .logo img {
+      width: 2000px;
+      transition: all linear .5s
+  }
+
+  header.fixed-header .logo img {
+      width: 100px;
+  }
+
+  .box-height {
+      height: 500px;
+  }
