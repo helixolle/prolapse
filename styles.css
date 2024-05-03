@@ -1,5 +1,3 @@
-.bg {}
-
 .bg:after {
     animation: grain 8s steps(10) infinite;
     background-image: url(http://assets.iceable.com/img/noise-transparent.png);
@@ -15,25 +13,45 @@
 @keyframes grain {
 
     0%,
-    100% {transform: translate(0, 0)}
+    100% {
+        transform: translate(0, 0)
+    }
 
-    10% {transform: translate(-5%, -10%)}
+    10% {
+        transform: translate(-5%, -10%)
+    }
 
-    20% {transform: translate(-15%, 5%)}
+    20% {
+        transform: translate(-15%, 5%)
+    }
 
-    30% {transform: translate(7%, -25%)}
+    30% {
+        transform: translate(7%, -25%)
+    }
 
-    40% {transform: translate(-5%, 25%)}
+    40% {
+        transform: translate(-5%, 25%)
+    }
 
-    50% {transform: translate(-15%, 10%)}
+    50% {
+        transform: translate(-15%, 10%)
+    }
 
-    60% {transform: translate(15%, 0%)}
+    60% {
+        transform: translate(15%, 0%)
+    }
 
-    70% {transform: translate(0%, 15%)}
+    70% {
+        transform: translate(0%, 15%)
+    }
 
-    80% {transform: translate(3%, 35%)}
+    80% {
+        transform: translate(3%, 35%)
+    }
 
-    90% {transform: translate(-10%, 10%)}
+    90% {
+        transform: translate(-10%, 10%)
+    }
 }
 
 video {
@@ -43,43 +61,125 @@ video {
     position: fixed;
     top: 0;
     left: 0;
-
+    z-index: -50;
     filter: grayscale(1);
     -webkit-filter: grayscale(1);
     filter: grayscale(100%);
 }
 
 /* styles.css */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
+    height: 100%
 }
 
-.svg-container {
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Sets Montserrat as the default font */
+}
+
+header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    zz-index: -1;
-    overflow: hidden;
-    display: flex;     /* Added to center the image in the container */
-    align-items: center;
-    justify-content: center;
+    top: 20px;
+    width: 100%;
+    height: 30px;
+    /* Explicitly set the height */
+    z-index: 1000;
+    padding: 10px 20px;
 }
 
-.svg-container img {
+header nav ul {
+    list-style-type: none;
+    /* Remove bullet points from the list */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* Aligns the links in a row */
+    justify-content: center;
+    /* Distributes space between links */
+}
+
+header nav ul li {
+    display: inline;
+    /* Inline display for list items */
+}
+
+header nav ul li a {
+    padding: 10px 90px;
+    text-decoration: none;
+    /* Removes underline from links */
+    color: #E93A00;
+    /* Dark grey color for the text */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 550;
+    /* Regular weight for normal text */
+    font-size: 20px;
+    /* Sets the size of the font */
+}
+
+/* Adjust the SVG and .content position to compensate for the header */
+svg {
+    padding-top: 60px;
+    position: absolute;
+    top: 50px;
+    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: fill; /* Cover to ensure it fills the space, replace with 'fill' if not working */
+    z-index: 200;
+}
+
+
+#production-info {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 20px; /* Padding for better layout */
+    box-sizing: border-box;
+    font-size: 25px;
+    color: #E93A00;
+}
+
+asdasd.content {
+    position: relative;
+    justify-content: center;
+    margin-top: calc(100vh + 50px);
+    padding: 20px;
+    z-index: 10;
 }
 
 .content {
-    margin-top: 100vh; /* Ensure this is equal to the viewport height */
-    padding: 20px;
-    background: white; /* Just for better readability */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the flex items on the cross axis */
+    width: 60%; /* Adjust based on preference */
+    margin: 0 auto; /* Center the content div in the middle of the page */
+    margin-top: calc(100vh + 50px);
+    padding-top: 500px;
 }
 
+.content h1 {
+    text-align: center;
+    margin-bottom: 100px; /* Space below the h1 */
+}
+
+.content div {
+    width: 100%; /* Each div takes full width of the .content */
+    margin-bottom: 200px; /* Space between each div */
+}
+
+/* Staggered/Zigzag effect */
+.content div:nth-child(odd) {
+    margin-left: 0%; /* Aligns to the left */
+    padding-left: 50%; /* Adds some padding for visual alignment */
+    padding-bottom: 150px;
+    text-align: center;
+}
+
+.content div:nth-child(even) {
+    margin-left: 0%; /* Pushes the div to the right */
+    padding-right: 50%; /* Adds some padding for visual alignment */
+    text-align: center;
+
+}
