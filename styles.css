@@ -88,6 +88,7 @@ header {
     /* Explicitly set the height */
     z-index: 1000;
     padding: 10px 20px;
+
 }
 
 header nav ul {
@@ -128,6 +129,7 @@ svg {
     width: 100%;
     z-index: 200;
 }
+
 
 
 #production-info {
@@ -183,3 +185,5 @@ asdasd.content {
     text-align: center;
 
 }
+
+
