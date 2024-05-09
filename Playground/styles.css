@@ -1,5 +1,176 @@
-html, body {
-    height: 100%;
-    margin: 0;
-  }
+/* Basic styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Spectral', sans-serif;
+}
 
+h1 {
+  color: #E93A00;
+}
+
+/* Background video styling */
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: grayscale(100%);
+}
+
+/* Background Blur Styling */
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;  // Adjust based on the combined height of the header and any visible part of the SVG.
+  z-index: 1;  // Lower than the SVG and header but higher than the content that should show through
+  backdrop-filter: blur(10px);  // Initial blur value
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+
+
+/* Header styling */
+header {
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  height: 30px;
+  z-index: 100;
+  padding: 10px 20px;
+  padding-top: 20px;
+}
+
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  padding: 10px 90px;
+  text-decoration: none;
+  color: #E93A00;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+/* SVG styling */
+svg {
+  padding-top: 60px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+
+/* Production Info Styling */
+#production-info {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 20px; /* Uniform padding for layout consistency */
+  box-sizing: border-box; /* Ensures padding does not affect overall width */
+  font-size: 30px; /* Clearly visible font size */
+  color: #E93A00; /* Brand color for emphasis */
+  top: calc(100vh + 120px); /* Position directly below the viewport initially */
+  opacity: 0; /* Start invisible */
+  transition: opacity 2s ease-out; /* Smooth transition for visibility */
+  z-index: -1;
+}
+
+
+
+
+/* Content division styling */
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: calc(100vh + 50px);
+  padding-top: 500px;
+  z-index: -1;
+}
+
+.content h1 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.content div {
+  width: 100%;
+  margin-bottom: 200px;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.content .isVisible {
+  opacity: 1;
+}
+
+.content .item:nth-child(odd) {
+  padding-left: 50%;
+  padding-bottom: 150px;
+  text-align: center;
+}
+
+.content .item:nth-child(even) {
+  padding-right: 50%;
+  text-align: center;
+}
+
+.content .ABOUTUS {
+  display: inline;
+  width: 60%;
+  font-size: larger;
+  text-align: justify;
+}
+
+.ABOUTUS h1 {
+  margin-bottom: 20px;
+}
+
+/* Noise effect */
+.bg:after {
+  animation: grain 8s steps(10) infinite;
+  background-image: url('http://assets.iceable.com/img/noise-transparent.png');
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 1;
+  position: fixed;
+  top: -110%;
+  width: 300%;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0) }
+  10% { transform: translate(-5%, -10%) }
+  20% { transform: translate(-15%, 5%) }
+  30% { transform: translate(7%, -25%) }
+  40% { transform: translate(-5%, 25%) }
+  50% { transform: translate(-15%, 10%) }
+  60% { transform: translate(15%, 0%) }
+  70% { transform: translate(0%, 15%) }
+  80% { transform: translate(3%, 35%) }
+  90% { transform: translate(-10%, 10%) }
+}
